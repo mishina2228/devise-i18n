@@ -25,3 +25,6 @@ pkg
 log/
 
 .env
+
+# ignore Gemfile.lock
+Gemfile.lock
