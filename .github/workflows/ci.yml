@@ -19,10 +19,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: gem update --system
-        if: ${{ matrix.ruby-version <= '2.5' }}
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "${{ matrix.ruby-version }}"
-          bundler-cache: true
+          bundler-cache: ${{ matrix.ruby-version > '2.5' }}
+      - run: gem update --system
+        if: ${{ matrix.ruby-version <= '2.5' }}
+      - run: bundle install
+        if: ${{ matrix.ruby-version <= '2.5' }}
       - run: bundle exec rake
