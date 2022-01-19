@@ -193,3 +193,6 @@ DEPENDENCIES
   railties
   rspec (>= 2.8.0)
   rspec-rails
+
+BUNDLED WITH
+   2.3.4
